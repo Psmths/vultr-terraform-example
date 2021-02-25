@@ -10,7 +10,7 @@ The startup script is located in two places for convenience. Because Vultr expec
 NOTE: Any trailing newline will prevent this from working, so be sure to remove it as follows:
 
 ```
-cat staging_script.sh |base64 > startup.sh && perl -p -i -e 's/\R//g;' startup.sh
+cat staging_script.sh |base64 >startup.sh && perl -p -i -e 's/\R//g;' startup.sh
 ```
 
 The startup script is applied to the instance with this line in the main instance resource:
