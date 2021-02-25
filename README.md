@@ -3,8 +3,8 @@
 
  Additional information can be found here:
 
-(Terraform Registry)[https://registry.terraform.io/providers/vultr/vultr/latest/docs]
-(Official GitHub)[https://github.com/vultr/terraform-provider-vultr]
+[Terraform Registry](https://registry.terraform.io/providers/vultr/vultr/latest/docs)
+[Official GitHub](https://github.com/vultr/terraform-provider-vultr)
 
 ## Information
 
