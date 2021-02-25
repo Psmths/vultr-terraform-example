@@ -1,6 +1,11 @@
 # vultr-terraform-example
  Example demonstrating how to deploy an Apache 2 instance on Vultr using terraform. This terraform deployment will create a cheap Vultr instance complete with DNS and firewall, as well as an Apache 2 installation.
 
+ Additional information can be found here:
+
+(Terraform Registry)[https://registry.terraform.io/providers/vultr/vultr/latest/docs]
+(Official GitHub)[https://github.com/vultr/terraform-provider-vultr]
+
 ## Information
 
 ### Startup Script
