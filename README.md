@@ -5,15 +5,17 @@
 
 ### Startup Script
 
-The startup script is located in two places for convenience. Because Vultr expects the script to be passed in Base64 encoding, it is much easier to write the script to a file and then convert it to Base64 before deploying.
-
-NOTE: Any trailing newline will prevent this from working, so be sure to remove it as follows:
+The startup script is located in two places for convenience. Because Vultr expects the script to be passed in Base64 encoding, we can use Terraform's `filebase64` functionality to automatically encode a file in base64 and pass it to this instance, like so:
 
 ```
-cat staging_script.sh |base64 >startup.sh && perl -p -i -e 's/\R//g;' startup.sh
+resource "vultr_startup_script" "standup" {
+    name = "apache2-deploy"
+    script = filebase64("startup.sh")
+    type = "boot"
+}
 ```
 
-The startup script is applied to the instance with this line in the main instance resource:
+The startup script is applied to the instance (referenced by id) with this line in the main instance resource:
 ```
 script_id = vultr_startup_script.standup.id
 ```
@@ -26,14 +28,6 @@ This terraform deployment will also add an authorized SSH key to the root accoun
 resource "vultr_ssh_key" "my_user" {
   name = "Root SSH key"
   ssh_key = "${file("sshkey.pub")}"
-}
-```
-The relevant provider is:
-```
-resource "vultr_startup_script" "standup" {
-    name = "apache2-deploy"
-    script = file("${path.module}/startup.sh")
-    type = "boot"
 }
 ```
 

@@ -16,7 +16,7 @@ resource "vultr_ssh_key" "my_user" {
 
 resource "vultr_startup_script" "standup" {
     name = "apache2-deploy"
-    script = file("${path.module}/startup.sh")
+    script = filebase64("startup.sh")
     type = "boot"
 }
 
