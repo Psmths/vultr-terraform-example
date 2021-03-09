@@ -10,7 +10,7 @@
 
 ### Startup Script
 
-The startup script is located in two places for convenience. Because Vultr expects the script to be passed in Base64 encoding, we can use Terraform's `filebase64` functionality to automatically encode a file in base64 and pass it to this instance, like so:
+Because Vultr expects the script to be passed in Base64 encoding, we can use Terraform's `filebase64` functionality to automatically encode a file in base64 and pass it to this instance, like so:
 
 ```
 resource "vultr_startup_script" "standup" {
